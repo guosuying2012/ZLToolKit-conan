@@ -20,7 +20,7 @@ class ZLToolKitConan(ConanFile):
             del self.options.fPIC
 
     def source(self):
-        self.run("git clone https://github.com/xia-chu/ZLToolKit.git")
+        self.run("git clone https://gitee.com/xia-chu/ZLToolKit.git")
         # This small hack might be useful to guarantee proper /MT /MD linkage
         # in MSVC if the packaged project doesn't have variables to set it
         # properly
