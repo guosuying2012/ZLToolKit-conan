@@ -31,7 +31,7 @@ conan_basic_setup()
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})''')
 
-        if self.options.shared:
+        if !self.options.shared:
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "add_library(${CMAKE_PROJECT_NAME}_shared SHARED ${SRC_LIST})", ''' #[[add_library(${CMAKE_PROJECT_NAME}_shared SHARED ${SRC_LIST}) ''')
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "install(TARGETS ${CMAKE_PROJECT_NAME}_shared  ARCHIVE DESTINATION ${INSTALL_PATH_LIB} LIBRARY DESTINATION ${INSTALL_PATH_LIB})", ''' install(TARGETS ${CMAKE_PROJECT_NAME}_shared  ARCHIVE DESTINATION ${INSTALL_PATH_LIB} LIBRARY DESTINATION ${INSTALL_PATH_LIB})]] ''')
         else:
