@@ -32,8 +32,8 @@ include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})''')
 
         # 修改测试程序的连接库 
-    	tools.replace_in_file("ZLToolKit/tests/CMakeLists.txt", "target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME}_shared ${LINK_LIB_LIST})", '''target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME} ${LINK_LIB_LIST}) ''')
-    	tools.replace_in_file("ZLToolKit/tests/CMakeLists.txt", "target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME}_shared ${LINK_LIB_LIST})", '''target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME} ${LINK_LIB_LIST}) ''')
+        tools.replace_in_file("ZLToolKit/tests/CMakeLists.txt", "target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME}_shared ${LINK_LIB_LIST})", '''target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME} ${LINK_LIB_LIST}) ''')
+        tools.replace_in_file("ZLToolKit/tests/CMakeLists.txt", "target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME}_shared ${LINK_LIB_LIST})", '''target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME} ${LINK_LIB_LIST}) ''')
 
         if self.options.shared:
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "add_library(${CMAKE_PROJECT_NAME}_shared SHARED ${SRC_LIST})", '''add_library(${CMAKE_PROJECT_NAME} SHARED ${SRC_LIST})''')
