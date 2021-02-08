@@ -32,10 +32,11 @@ include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})''')
 
         if self.options.shared:
-        	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "add_subdirectory(tests)", ''' # add_subdirectory(tests) ''')
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "add_library(${CMAKE_PROJECT_NAME}_shared SHARED ${SRC_LIST})", ''' #[[add_library(${CMAKE_PROJECT_NAME}_shared SHARED ${SRC_LIST}) ''')
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "install(TARGETS ${CMAKE_PROJECT_NAME}_shared  ARCHIVE DESTINATION ${INSTALL_PATH_LIB} LIBRARY DESTINATION ${INSTALL_PATH_LIB})", ''' install(TARGETS ${CMAKE_PROJECT_NAME}_shared  ARCHIVE DESTINATION ${INSTALL_PATH_LIB} LIBRARY DESTINATION ${INSTALL_PATH_LIB})]] ''')
         else:
+        	tools.replace_in_file("ZLToolKit/tests/CMakeLists.txt", "target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME}_shared ${LINK_LIB_LIST})", ''' target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME}_static ${LINK_LIB_LIST}) ''')
+        	tools.replace_in_file("ZLToolKit/tests/CMakeLists.txt", "target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME}_shared ${LINK_LIB_LIST} pthread)", ''' target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME}_static ${LINK_LIB_LIST} pthread) ''')
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "add_library(${CMAKE_PROJECT_NAME}_static STATIC ${SRC_LIST})", ''' #[[add_library(${CMAKE_PROJECT_NAME}_static STATIC ${SRC_LIST}) ''')
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "install(TARGETS ${CMAKE_PROJECT_NAME}_static ARCHIVE DESTINATION ${INSTALL_PATH_LIB})", ''' install(TARGETS ${CMAKE_PROJECT_NAME}_static ARCHIVE DESTINATION ${INSTALL_PATH_LIB})]] ''')
         	pass
