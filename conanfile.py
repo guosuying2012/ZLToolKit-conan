@@ -35,11 +35,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})''')
         if self.options.shared:
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "add_library(${CMAKE_PROJECT_NAME}_shared SHARED ${SRC_LIST})", '''add_library(${CMAKE_PROJECT_NAME} SHARED ${SRC_LIST})''')
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "target_link_libraries(${CMAKE_PROJECT_NAME}_shared ${LINK_LIB_LIST})", '''target_link_libraries(${CMAKE_PROJECT_NAME} ${LINK_LIB_LIST})''')
-        	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "set_target_properties(${CMAKE_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${CMAKE_PROJECT_NAME}")", ''' set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES OUTPUT_NAME "${CMAKE_PROJECT_NAME}")''')
+        	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "set_target_properties(${CMAKE_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME \"${CMAKE_PROJECT_NAME}\")", ''' set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES OUTPUT_NAME "${CMAKE_PROJECT_NAME}")''')
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "install(TARGETS ${CMAKE_PROJECT_NAME}_shared  ARCHIVE DESTINATION ${INSTALL_PATH_LIB} LIBRARY DESTINATION ${INSTALL_PATH_LIB})", '''install(TARGETS ${CMAKE_PROJECT_NAME}  ARCHIVE DESTINATION ${INSTALL_PATH_LIB} LIBRARY DESTINATION ${INSTALL_PATH_LIB})''')
         else:
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "add_library(${CMAKE_PROJECT_NAME}_static STATIC ${SRC_LIST})", '''add_library(${CMAKE_PROJECT_NAME} STATIC ${SRC_LIST})''')
-        	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "set_target_properties(${CMAKE_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${CMAKE_PROJECT_NAME}")", '''set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES OUTPUT_NAME "${CMAKE_PROJECT_NAME}")''')
+        	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "set_target_properties(${CMAKE_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME \"${CMAKE_PROJECT_NAME}\")", '''set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES OUTPUT_NAME "${CMAKE_PROJECT_NAME}")''')
         	tools.replace_in_file("ZLToolKit/CMakeLists.txt", "install(TARGETS ${CMAKE_PROJECT_NAME}_static ARCHIVE DESTINATION ${INSTALL_PATH_LIB})", '''install(TARGETS ${CMAKE_PROJECT_NAME} ARCHIVE DESTINATION ${INSTALL_PATH_LIB})''')
         	pass
 
