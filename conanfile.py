@@ -13,7 +13,7 @@ class ZLToolKitConan(ConanFile):
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = {"shared": False, "fPIC": True}
     generators = "cmake", "cmake_find_package", "cmake_paths"
-    requires = ["openssl/1.1.1i", "libmysqlclient/8.0.17"]
+    requires = ["openssl/1.1.1i", "mysql-connector-c/6.1.11"]
 
     def config_options(self):
         if self.settings.os == "Windows":
